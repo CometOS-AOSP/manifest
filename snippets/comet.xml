@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="CometOS"
+           fetch="https://github.com/CometOS-AOSP"
+           revision="refs/heads/UpsideDownCake/ultracosmic" />
+  <remote  name="PixelOS"
+           fetch="https://github.com/PixelOS-Fourteen"
+           revision="refs/heads/fourteen-qpr1" />
+  <remote  name="PixelOS-Gitlab"
+           fetch="https://gitlab.com/PixelOS-AOSP"
+           revision="refs/heads/fourteen" />
+
+  <!-- Rootdir -->
+  <project path="bionic" name="platform_bionic" remote="CometOS" />
+
+  <!-- Bootable -->
+  <project path="bootable/recovery" name="platform_bootable_recovery" remote="CometOS" />
+
+  <!-- Build -->
+  <project path="build/bazel" name="platform_build_bazel" remote="CometOS" >
+    <linkfile src="bazel.WORKSPACE" dest="WORKSPACE" />
+    <linkfile src="bazel.BUILD" dest="BUILD" />
+  </project>
+  <project path="build/make" name="platform_build" remote="CometOS">
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="platform_build_soong" remote="CometOS">
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- External -->
+  <project path="external/boringssl" name="platform_external_boringssl" remote="CometOS" />
+  <project path="external/jemalloc_new" name="platform_external_jemalloc_new" remote="CometOS" />
+  <project path="external/sqlite" name="platform_external_sqlite" remote="CometOS" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="platform_frameworks_av" remote="CometOS" />
+  <project path="frameworks/base" name="platform_frameworks_base" remote="CometOS" />
+  <project path="frameworks/native" name="platform_frameworks_native" remote="CometOS" />
+
+  <!-- Hardware -->
+  <project path="hardware/google/pixel-sepolicy" name="platform_hardware_google_pixel-sepolicy" remote="CometOS" />
+
+  <!-- Packages -->
+  <project path="packages/apps/Nfc" name="platform_packages_apps_Nfc" remote="CometOS" />
+  <project path="packages/apps/Settings" name="platform_packages_apps_Settings" remote="CometOS" />
+  <project path="packages/modules/Bluetooth" name="platform_packages_modules_Bluetooth" remote="CometOS" />
+  <project path="packages/modules/Virtualization" name="platform_packages_modules_Virtualization" remote="CometOS" />
+  <project path="packages/services/Telecomm" name="platform_packages_services_Telecomm" remote="CometOS" />
+
+  <!-- System -->
+  <project path="system/core" name="platform_system_core" remote="CometOS" />
+  <project path="system/sepolicy" name="platform_system_sepolicy" remote="CometOS" />
+  <project path="system/server_configurable_flags" name="platform_system_server_configurable_flags" remote="CometOS" />
+  <project path="system/update_engine" name="platform_system_update_engine" remote="CometOS" />
+
+  <!-- Toolchain -->
+  <project path="toolchain/pgo-profiles" name="platform_toolchain_pgo-profiles" remote="CometOS" />
+
+  <!-- Device -->
+  <project path="device/lineage/sepolicy" name="platform_device_lineage_sepolicy" remote="CometOS" />
+  <project path="device/mediatek/sepolicy_vndr" name="platform_device_mediatek_sepolicy_vndr" remote="CometOS" />
+
+  <!-- Hardware -->
+  <project path="hardware/lineage/interfaces" name="platform_hardware_lineage_interfaces" remote="CometOS" />
+
+  <!-- Packages -->
+  <project path="packages/apps/TouchGestures" name="platform_packages_apps_TouchGestures" remote="CometOS" />
+  <!--  <project path="packages/apps/Updates" name="platform_packages_apps_Updates" remote="CometOS" /> -->
+
+  <!-- Vendor -->
+  <project path="vendor/comet" name="vendor_comet" remote="CometOS" />
+  <project path="vendor/custom-preference" name="vendor_custom-preference" remote="PixelOS" />
+</manifest>
