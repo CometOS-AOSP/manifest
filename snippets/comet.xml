@@ -47,7 +47,7 @@
   <project path="frameworks/native" name="platform_frameworks_native" remote="CometOS" />
 
   <!-- Hardware -->
-  <project path="hardware/google/pixel-sepolicy" name="platform_hardware_google_pixel-sepolicy" remote="CometOS" />
+  <project path="hardware/google/pixel-sepolicy" name="hardware_google_pixel-sepolicy" remote="PixelOS" />
 
   <!-- Packages -->
   <project path="packages/apps/Nfc" name="platform_packages_apps_Nfc" remote="CometOS" />
